@@ -1,19 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PartyInvitesChaptThree.Models;
-using System.Diagnostics;
 
 namespace PartyInvitesChaptThree.Controllers
 {
     public class HomeController : Controller
     {
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             return View();
         }
 
+        [HttpGet]
         public ViewResult RsvpForm()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ViewResult RsvpForm(GuestResponse guestResponse)
+        {
+            Repository.AddResponse(guestResponse);
+            return View("Thanks", guestResponse);
         }
     }
 }
