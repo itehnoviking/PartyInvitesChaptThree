@@ -10,5 +10,10 @@ namespace PartyInvitesChaptThree.Controllers
         {
             return View();
         }
+
+        public ViewResult RsvpForm()
+        {
+            return View();
+        }
     }
 }
